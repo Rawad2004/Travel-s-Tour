@@ -1,0 +1,165 @@
+@import './variables.scss';
+
+:root {
+  --bs-primary: #{$primary-color};
+  --bs-primary-rgb: 26, 107, 138;
+  --bs-link-color: #{$primary-color};
+  --bs-link-hover-color: #{darken($primary-color, 8%)};
+}
+
+.btn-primary {
+  background-color: $primary-color;
+  border-color: $primary-color;
+
+  &:hover {
+    background-color: darken($primary-color, 8%);
+    border-color: darken($primary-color, 8%);
+  }
+}
+
+.bg-primary {
+  background-color: $primary-color !important;
+}
+
+.text-primary {
+  color: $primary-color !important;
+}
+
+.btn-outline-primary {
+  color: $primary-color;
+  border-color: $primary-color;
+
+  &:hover {
+    background-color: $primary-color;
+    border-color: $primary-color;
+  }
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  font-family: $font-family-base;
+  font-size: $font-size-base;
+  color: $dark-color;
+  background-color: #ffffff;
+}
+
+body {
+  line-height: 1.6;
+}
+
+a {
+  color: $primary-color;
+  text-decoration: none;
+  transition: color 0.3s ease;
+
+  &:hover {
+    color: darken($primary-color, 10%);
+  }
+}
+
+button {
+  cursor: pointer;
+  font-family: $font-family-base;
+  border: none;
+  border-radius: $border-radius-md;
+  padding: $spacing-sm $spacing-md;
+  font-size: $font-size-base;
+  transition: all 0.3s ease;
+
+  &:hover {
+    opacity: 0.9;
+  }
+
+  &:active {
+    transform: scale(0.98);
+  }
+}
+
+input, textarea, select {
+  font-family: $font-family-base;
+  font-size: $font-size-base;
+  padding: $spacing-sm $spacing-md;
+  border: 1px solid #ddd;
+  border-radius: $border-radius-md;
+  transition: border-color 0.3s ease;
+
+  &:focus {
+    outline: none;
+    border-color: $primary-color;
+    box-shadow: 0 0 0 3px rgba($primary-color, 0.1);
+  }
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: $font-weight-bold;
+  line-height: 1.3;
+  margin-bottom: $spacing-md;
+}
+
+h1 {
+  font-size: 2rem;
+}
+
+h2 {
+  font-size: 1.75rem;
+}
+
+h3 {
+  font-size: 1.5rem;
+}
+
+h4 {
+  font-size: 1.25rem;
+}
+
+// Utility Classes
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 $spacing-md;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.text-right {
+  text-align: right;
+}
+
+.text-left {
+  text-align: left;
+}
+
+.mt-1 { margin-top: $spacing-sm; }
+.mt-2 { margin-top: $spacing-md; }
+.mt-3 { margin-top: $spacing-lg; }
+.mt-4 { margin-top: $spacing-xl; }
+
+.mb-1 { margin-bottom: $spacing-sm; }
+.mb-2 { margin-bottom: $spacing-md; }
+.mb-3 { margin-bottom: $spacing-lg; }
+.mb-4 { margin-bottom: $spacing-xl; }
+
+.p-1 { padding: $spacing-sm; }
+.p-2 { padding: $spacing-md; }
+.p-3 { padding: $spacing-lg; }
+.p-4 { padding: $spacing-xl; }
+
+// Import component styles
+@import './components/navbar.scss';
+@import './components/footer.scss';
+
+// Import common page styles
+@import './pages/common.scss';
+
+// Import page styles
+@import './pages/homepage.scss';
+@import './pages/loginpage.scss';
+@import './pages/dashboardpage.scss';
+@import './pages/misreservas.scss';

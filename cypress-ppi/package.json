@@ -1,0 +1,18 @@
+{
+  "name": "travels-tours-cypress-ppi",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Pruebas automatizadas E2E (Cypress) del sitio Travel's Tours - PPI 5to semestre",
+  "scripts": {
+    "backend": "cd ../travels-tours-backend/backend && SPRING_DATASOURCE_USERNAME=raw SPRING_DATASOURCE_PASSWORD=x SQL_INIT_MODE=never ./mvnw spring-boot:run",
+    "frontend": "cd ../travels-tours-frontend && npm run dev",
+    "cy:open": "cypress open",
+    "cy:run": "cypress run",
+    "cy:open:railway": "cypress open --config baseUrl=https://frontend-production-917c6.up.railway.app --env apiUrl=https://backend-production-35712.up.railway.app/api",
+    "cy:run:railway": "cypress run --config baseUrl=https://frontend-production-917c6.up.railway.app --env apiUrl=https://backend-production-35712.up.railway.app/api",
+    "cy:run:report": "cypress run --reporter junit --reporter-options mochaFile=results/junit-[hash].xml"
+  },
+  "devDependencies": {
+    "cypress": "^15.21.1"
+  }
+}

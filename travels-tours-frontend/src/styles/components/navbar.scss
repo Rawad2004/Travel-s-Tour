@@ -1,0 +1,26 @@
+@import '../variables.scss';
+
+nav {
+  display: flex;
+  align-items: center;
+  gap: $spacing-md;
+  padding: $spacing-md;
+  background-color: $light-color;
+  border-bottom: 1px solid #ddd;
+
+  a {
+    font-weight: $font-weight-normal;
+    padding: $spacing-sm $spacing-md;
+    border-radius: $border-radius-md;
+    transition: all 0.3s ease;
+
+    &:hover {
+      background-color: darken($light-color, 5%);
+    }
+
+    &.active {
+      color: $primary-color;
+      font-weight: $font-weight-bold;
+    }
+  }
+}

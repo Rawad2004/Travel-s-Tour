@@ -1,0 +1,74 @@
+﻿ID,Title,Section,Refs,Priority,Type,Preconditions,Steps,Expected Result,Último resultado (Cypress)
+TC-01,Registro exitoso de un cliente nuevo,/registro,RF-001,Alta,Funcional / Positiva,El sitio (5173) y la API (8080) están en ejecución; el correo no existe,"1. Abrir /registro
+2. Verificar URL
+3. Verificar título de la pestaña
+4. Verificar texto 'Crear cuenta cliente'
+5. Verificar los 4 campos
+6. Verificar menú sin sesión (Login/Registro)
+7. Verificar CSS (fuente, color de texto, fondo del botón)
+8. Diligenciar Nombre, Email, Teléfono, Contraseña
+9. Verificar valores escritos
+10. Clic en 'Registrarme'
+11. Verificar redirección a / y token
+12. Verificar dropdown con 'Mi Cuenta' y 'Cerrar Sesion'
+13. Verificar imágenes de paquetes
+14. Verificar que desaparece 'Login'","El sistema crea la cuenta, inicia sesión y redirige a inicio mostrando el menú de usuario",Pasa
+TC-02,Registro rechazado por correo ya registrado,/registro,RF-001,Alta,Funcional / Negativa,Existe un usuario con el correo a usar,"1. Abrir /registro
+2. Verificar ruta
+3. Verificar que no hay alertas
+4-7. Diligenciar con correo existente
+8. Clic en 'Registrarme'
+9. Verificar alerta de error (texto y color)
+10. Verificar que permanece en /registro
+11. Verificar que no hay token
+12. Verificar que no existe el menú de usuario","Alerta 'El correo ya está registrado', sin sesión",Pasa
+TC-03,El servidor debe rechazar contraseñas menores a 4 caracteres,API /auth/register,RF-001,Media,Funcional / Negativa (API),API en ejecución,"1. POST /api/auth/register con contraseña de 1 carácter
+2. Verificar código HTTP 400",HTTP 400 (validación en servidor),Falla (BUG-01: responde 201)
+TC-04,Inicio de sesión exitoso con credenciales válidas,/login,RF-002,Alta,Funcional / Positiva,Usuario Cliente creado por API,"1. Abrir /login
+2. URL
+3. Título
+4. Texto 'Iniciar sesión'
+5. Campos #loginEmail y #loginPassword
+6. Botón (texto, habilitado, color)
+7. Enlace 'Crear cuenta'
+8. Menú de navegación
+9. Escribir credenciales
+10. Clic en 'Iniciar sesión'
+11. Redirección a /
+12. Token guardado
+13. Dropdown con nombre y opciones
+14. Cerrar sesión y volver a /login","Sesión iniciada, redirección a inicio, menú de usuario visible",Pasa
+TC-05,Inicio de sesión rechazado con contraseña incorrecta,/login,RF-002,Alta,Funcional / Negativa,Usuario Cliente creado por API,"1. Abrir /login
+2. Sin alertas
+3-4. Escribir correo válido y contraseña incorrecta
+5. Verificar valor
+6. Clic en 'Iniciar sesión'
+7. Alerta visible con 'incorrectos'
+8. Estilo de la alerta
+9. Permanece en /login
+10. Sin token
+11. Sin menú de usuario
+12. Botón disponible",Alerta de error y sin sesión,Pasa
+TC-06,Envío exitoso de un mensaje de contacto,/contacto,RF-003,Media,Funcional / Positiva,Sitio y API en ejecución,"1. Abrir /contacto
+2. URL
+3. Título
+4. Encabezado 'Contacto' (color y peso)
+5. Tipografía
+6. Campos nombre, email, mensaje
+7. Botón 'Enviar' (color)
+8. Diligenciar
+9. Verificar valores
+10. Clic en 'Enviar'
+11. Alerta 'Mensaje enviado correctamente'
+12. Formulario limpio
+13. Permanece en /contacto",Mensaje registrado y formulario limpio,Pasa
+TC-07,El formulario de contacto no se envía con campos vacíos o correo inválido,/contacto,RF-003,Media,Funcional / Negativa,Sitio y API en ejecución,"1. Abrir /contacto
+2. Enviar vacío
+3. Nombre inválido (navegador)
+4. Sin alerta de éxito
+5-7. Diligenciar con correo sin arroba
+8. Enviar
+9. Correo inválido por formato
+10. No se llama a la API
+11. Sin éxito
+12. Datos conservados",El navegador bloquea el envío y no hay llamada a la API,Pasa

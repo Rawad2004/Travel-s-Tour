@@ -1,0 +1,43 @@
+@import '../variables.scss';
+
+.mis-reservas-page {
+  h1 {
+    color: $primary-color;
+  }
+
+  .mis-reservas-tabla thead {
+    background-color: $primary-color;
+    color: #fff;
+
+    th {
+      border-color: darken($primary-color, 5%);
+    }
+  }
+
+  .estado-leyenda {
+    color: $secondary-color;
+    line-height: 1.8;
+  }
+
+  @media (max-width: 576px) {
+    .estado-leyenda span {
+      display: block;
+      margin-bottom: 0.35rem;
+    }
+  }
+}
+
+.app-navbar .navbar-brand {
+  color: $primary-color;
+  font-weight: $font-weight-bold;
+}
+
+.registro-card .btn-registro {
+  background-color: $accent-color;
+  border-color: $accent-color;
+
+  &:hover {
+    background-color: darken($accent-color, 8%);
+    border-color: darken($accent-color, 8%);
+  }
+}
